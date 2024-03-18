@@ -40,7 +40,7 @@ provider "helm" {
        config_path = "~/.kube/config"
   exec {
     api_version = "client.authentication.k8s.io/v1beta1"
-    args        = ["eks", "get-token", "--cluster-name", module.prometheus.cluster_name]
+    args        = ["eks", "get-token", "--cluster-name", var.cluster_name]
     command     = "aws"
   }
     }
@@ -54,7 +54,7 @@ provider "kubernetes" {
   config_path = "~/.kube/config"
   exec {
     api_version = "client.authentication.k8s.io/v1beta1"
-    args        = ["eks", "get-token", "--cluster-name", module.prometheus.cluster_name]
+    args        = ["eks", "get-token", "--cluster-name", var.cluster_name]
     command     = "aws"
   }
 
