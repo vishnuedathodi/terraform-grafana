@@ -27,7 +27,7 @@ resource "null_resource" "example" {
 
 resource "helm_release" "prometheus" {
   #depends_on = [kubernetes_namespace.kube-namespace, time_sleep.wait_for_kubernetes]
-  name       = "var.release_name"  
+  name       = "${var.release_name}"  
   repository = "https://prometheus-community.github.io/helm-charts"
   chart      = "kube-prometheus-stack"
   #namespace  = kubernetes_namespace.kube-namespace.id
