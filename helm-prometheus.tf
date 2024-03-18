@@ -34,6 +34,9 @@ resource "helm_release" "prometheus" {
   namespace  = "prometheus"
   create_namespace = false
   version    = "45.7.1"
+  recreate_pods   = true  # Recreate pods during upgrade
+  reset_values    = true  # Reset any existing values
+  force_update    = true  # Force update the release
   values = [
     file("values.yaml")
   ]
