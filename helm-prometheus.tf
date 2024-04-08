@@ -52,7 +52,10 @@ set {
     name  = "server.persistentVolume.enabled"
     value = false
   }
-
+  set {
+    name  = "grafana.enabled"
+    value = false
+  }
   # You can provide a map of value using yamlencode. Don't forget to escape the last element after point in the name
   set {
     name = "server\\.resources"
