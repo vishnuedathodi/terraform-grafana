@@ -1028,7 +1028,7 @@ serverFiles:
 # adds additional scrape configs to prometheus.yml
 # must be a string so you have to add a | after extraScrapeConfigs:
 # example adds prometheus-blackbox-exporter scrape config
-extraScrapeConfigs:
+extraScrapeConfigs: []
   # - job_name: 'prometheus-blackbox-exporter'
   #   metrics_path: /probe
   #   params:
@@ -1043,19 +1043,7 @@ extraScrapeConfigs:
   #       target_label: instance
   #     - target_label: __address__
   #       replacement: prometheus-blackbox-exporter:9115
-    - job_name: opencost
-      honor_labels: true
-      scrape_interval: 1m
-      scrape_timeout: 10s
-      metrics_path: /metrics
-      scheme: http
-      dns_sd_configs:
-      - names:
-        - opencost.opencost
-        type: 'A'
-        port: 9003
-  
-
+ 
 # Adds option to add alert_relabel_configs to avoid duplicate alerts in alertmanager
 # useful in H/A prometheus with different external labels but the same alerts
 alertRelabelConfigs: {}
